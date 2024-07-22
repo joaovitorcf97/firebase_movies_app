@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "98399061638",
+    "project_id": "firebase-movies-app-example",
+    "storage_bucket": "firebase-movies-app-example.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98399061638:android:ae21b56df382d136a8f307",
+        "android_client_info": {
+          "package_name": "tech.joaovitor.moviesapp.firebase_movies_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiKqY286ynX92B2Weg_8CBB4zgILowb0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
