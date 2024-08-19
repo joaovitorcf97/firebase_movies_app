@@ -19,6 +19,9 @@ class AppMaterialDart {
         primaryColor: AppColors.primaryColor,
         appBarTheme: AppBarTheme(
           backgroundColor: AppColors.primaryColor,
+          iconTheme: IconThemeData(
+            color: AppColors.whiteColor,
+          ),
           titleTextStyle: TextStyle(
             color: AppColors.whiteColor,
             fontWeight: FontWeight.bold,
