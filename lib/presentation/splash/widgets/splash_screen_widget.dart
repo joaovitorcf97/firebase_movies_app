@@ -6,6 +6,7 @@ import 'package:firebase_movies_app/core/widgets/texts/text_widget.dart';
 import 'package:firebase_movies_app/presentation/login/screens/login_screen.dart';
 import 'package:firebase_movies_app/presentation/nav/screens/nav_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreenWidget extends StatefulWidget {
@@ -27,12 +28,34 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
         if (user == null) {
           handleNavigation(context, LoginScreen.routeName, clear: true);
         } else {
-          handleNavigation(context, NavScreen.routeName, clear: true);
+          Navigator.of(context).pushReplacement(_createRoute());
         }
       }
     });
 
     super.initState();
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secodaryAnimation) => const NavScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = 0.0;
+        const end = 1.0;
+        const curve = Curves.easeInOut;
+
+        final tween = Tween(begin: begin, end: end);
+        final curverdAnimamtion = CurvedAnimation(
+          parent: animation,
+          curve: curve,
+        );
+
+        return FadeTransition(
+          opacity: tween.animate(curverdAnimamtion),
+          child: child,
+        );
+      },
+    );
   }
 
   @override
