@@ -5,6 +5,7 @@ import 'package:firebase_movies_app/core/mixins/loading_error_mixin.dart';
 import 'package:firebase_movies_app/core/mixins/navigation_mixin.dart';
 import 'package:firebase_movies_app/core/mixins/snack_bat_mixin.dart';
 import 'package:firebase_movies_app/core/widgets/sized_box/sized_box_widget.dart';
+import 'package:firebase_movies_app/core/widgets/texts/inputs/text_form_field_widget.dart';
 import 'package:firebase_movies_app/core/widgets/texts/text_widget.dart';
 import 'package:firebase_movies_app/presentation/login/mixins/login_focus_node_mixin.dart';
 import 'package:firebase_movies_app/presentation/login/mixins/login_text_editing_controller.dart';
@@ -56,6 +57,13 @@ class _LoginScreenState extends State<LoginScreen>
   }
 
   @override
+  void dispose() {
+    disposeFN();
+    disposeLoginTec();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
@@ -71,8 +79,22 @@ class _LoginScreenState extends State<LoginScreen>
                   height: 150,
                   child: Lottie.asset(AssetsPathsConst.animationLogin),
                 ),
-                const SizedBoxWidget.sm(),
+                const SizedBoxWidget.md(),
                 TextWidget.title('Firebase Movies App'),
+                const SizedBoxWidget.md(),
+                TextFormFieldWidget(
+                  inputLabel: 'E-mail',
+                  controller: emailTec,
+                  focusNode: emailFN,
+                ),
+                const SizedBoxWidget.md(),
+                TextFormFieldWidget(
+                  inputLabel: 'Senha',
+                  controller: passwordTec,
+                  focusNode: passwordFN,
+                  isPassword: true,
+                  // validator: PasswordValidator.validate,
+                ),
               ],
             ),
           ),
