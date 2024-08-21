@@ -14,7 +14,7 @@ class GetMoviesRepository {
   Future<(String? error, List<MovieModel> movies)> getMovies() async {
     final (String? getMoviesError, ApiResponseModel<Map>? moviesResponse) =
         await _api.get(
-      '/3/discover/movie?include_adult=true&language=pt-BR&page=1&sort_by=popularity.desc',
+      '/3/discover/movie?include_adult=true&include_video=true&language=en-BR&page=1&sort_by=popularity.desc',
     );
 
     final moviesToReturn = <MovieModel>[];

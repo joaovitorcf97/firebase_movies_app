@@ -28,7 +28,7 @@ class NavController extends ChangeNotifier {
     final (String? errorLoadingMovies, List<MovieModel> movies) =
         await _getMoviesRepository.getMovies();
 
-    movies
+    moviesList
       ..clear()
       ..addAll(movies);
 

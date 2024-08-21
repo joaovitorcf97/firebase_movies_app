@@ -14,4 +14,7 @@ class AssetsPathsConst {
 
   static String get animationLogin =>
       '$_animationFolder/26406-clapperboard.json';
+
+  static const String _imageFolder = 'assets/images';
+  static String get cinemaImage => '$_imageFolder/cinema.jpg';
 }
